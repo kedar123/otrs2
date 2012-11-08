@@ -1,0 +1,24 @@
+This app is a bridge between the OTRS API and Rails.
+You can use this to connect to the OTRS API in a more RESTful way.
+This is still a work in development and only partial functionality has been added.
+
+Items to clean up
+ - Finish making tickets/articles/links create/update methods more ActiveRecord like
+
+Partially implemented
+  - Tickets API
+  - Articles API
+  - Links API
+  - ITSM ConfigItems API
+  
+
+To customize for your use you must have the OTRS json.pl in your OTRS cgi-bin directory.
+I also added ITSMConfigItemObjects to this json as it is required for my use.
+I will create an OPM package with a custom json.pl to do it the right way (instead of editing existing files directly, causing errors in the admin interface).
+In app>models>otrs.rb you need to change the username/password, host, and URL to whatever matches your installation.
+The username/password combo should be an existing agent in OTRS.
+
+
+
+You can either copy the app files to your existing rails app or run this as a separate service and connect your Rails app using ActiveResource.
+Check out http://railscasts.com/episodes/94-activeresource-basics as a primer to using ActiveResource.
